@@ -1,21 +1,26 @@
-CC = gcc
-SRC = $(wildcard src/*.c)
-OBJ = $(SRC:.c=.o)
-EXEC = prog
+.PHONY:clean mrproper install run
+EXE=prog
+CC = GCC
+CFLAGS = -O4 -g -Wall
+USER:=$(shell whoami)
 
+all:$(EXE) clean install 
 
-
-all : $(EXEC)
-
+$(EXE):src/main.o
+	$(CC) $(CFLAGS) $^ -o $@
 
 %.o : %.c
-	gcc -c $< -o $@
+	$(CC) -c $< -o $@
 
-$(EXEC) : $(OBJ)
-	gcc -g -Wall $^ -o $@
+run:
+	./bin/prog.exe
 
+install:
+	@echo $(USER)
+	mv prog.exe bin
+	make -C bin/ install
 
-clean : .
-	rm -r -f $(OBJ)
-mrproper : clean
-	rm -r -f prog.exe
+clean:
+	rm -r -f src/*.o
+mrproper:clean
+	rm -r -f bin/prog.exe
