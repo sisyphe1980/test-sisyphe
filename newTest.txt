@@ -3,7 +3,7 @@ fetch - unpack - patch - licence - configure - compile - install -package - etc
 
 bitbake -c listtasks ma_recette
 bitbake -c listtasks ma_recette
-bitbake -c listtasks ma_recette
+bitbake -c listtasks ma_drecette
 
 bitbake -c cleanstate ma_recette =+> supprime la recette +cache 
 
