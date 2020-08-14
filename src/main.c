@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
 {
     FILE* fichier = NULL;
     int caracActual = 0;
-
+    printf("nbre arg : %d", argc);
     fichier = fopen("newTest.txt", "r");
     perror("Probleme de fichier :");
     if(fichier != NULL) { 
