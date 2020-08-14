@@ -1,23 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
+#include <string.h>
 
-int strLen(const char *chaine) {
-        int nbCarac = 0;
-        char caracActual = 0;
-        do {
-                caracActual = chaine[nbCarac];
-                nbCarac++;
-        } while (caracActual != '\0');
-        nbCarac--;
-        return nbCarac;
-}
 
-int main() {
+int main(int argc, char *argv[])
+{
+    FILE* fichier = NULL;
+    int caracActual = 0;
 
-        char chaine[] = "une";
-        int nb = strLen(chaine);
-        printf("La chaine vaut : %d carac", nb);
-
-        return 0;
+    fichier = fopen("newTest.txt", "r");
+    perror("Probleme de fichier :");
+    if(fichier != NULL) { 
+        do { 
+            caracActual = fgetc(fichier);
+            printf("%c", caracActual);
+        } while (caracActual != EOF);
+    }
+    fclose(fichier);
+    return 0;
 }
