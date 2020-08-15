@@ -7,7 +7,8 @@
 int main(int argc, char *argv[])
 {
     FILE* fichier = NULL;
-    int a = 5,b = 7;
+
+    int a = 5, b = 6;
     int caracActual = 0;
     printf("nbre arg : %d", argc);
     fichier = fopen("newTest.txt", "r");
