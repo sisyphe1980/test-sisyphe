@@ -3,9 +3,14 @@
 #include <errno.h>
 #include <string.h>
 
+int maFunc(int a) {
+    return a * 3;
+}
 
 int main(int argc, char *argv[])
 {
+    int (*pf)(int) = &maFunc;
+    printf("le triple de trois vaut : %d", (*pf)(3));
     FILE* fichier = NULL;
 
     int a = 5, b = 6;
