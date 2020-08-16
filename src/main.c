@@ -24,6 +24,10 @@ int testPalindrome(char *chaine) {
         return 0;
 }
 
+int add(int a, int b) {
+    return a + b;
+}
+
 int maFunc(int a) {
     return a * 3;
 }
